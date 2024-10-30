@@ -41,6 +41,10 @@ app.get("/contact-me", (req, res) => {
     });
 });
 
+app.get("*", (req, res) => {
+    res.send("404 Not Found");
+  });
+
 const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`My first Express app - listening on port ${PORT}!`);
