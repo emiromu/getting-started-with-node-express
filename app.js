@@ -5,7 +5,7 @@ import express from 'express';
 const app = express();
 const __dirname = path.resolve();
 
-app.get("/", (req, res) => {
+app.get("/(index)?", (req, res) => {
     fs.readFile(__dirname+'/index.html', 'utf8', (err, data) => {
         if (err) {
             console.log(err);
