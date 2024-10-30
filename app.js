@@ -2,8 +2,14 @@ import fs from 'fs';
 import path from 'path';
 import express from 'express';
 
+import authorRouter from './routes/authorRouter.js';
+import bookRouter from './routes/bookRouter.js';
+
 const app = express();
 const __dirname = path.resolve();
+
+app.use("/authors", authorRouter);
+app.use("/books", bookRouter);
 
 app.get("/(index)?", (req, res) => {
     fs.readFile(__dirname+'/index.html', 'utf8', (err, data) => {
