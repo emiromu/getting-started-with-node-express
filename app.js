@@ -1,7 +1,45 @@
-const express = require("express");
-const app = express();
+import fs from 'fs';
+import path from 'path';
+import express from 'express';
 
-app.get("/", (req, res) => res.send("Hello, world!"));
+const app = express();
+const __dirname = path.resolve();
+
+app.get("/", (req, res) => {
+    fs.readFile(__dirname+'/index.html', 'utf8', (err, data) => {
+        if (err) {
+            console.log(err);
+        }
+        else
+        {
+            res.send(data);
+        }
+    });
+});
+
+app.get("/about", (req, res) => {
+    fs.readFile(__dirname+'/about.html', 'utf8', (err, data) => {
+        if (err) {
+            console.log(err);
+        }
+        else
+        {
+            res.send(data);
+        }
+    });
+});
+
+app.get("/contact-me", (req, res) => {
+    fs.readFile(__dirname+'/contact-me.html', 'utf8', (err, data) => {
+        if (err) {
+            console.log(err);
+        }
+        else
+        {
+            res.send(data);
+        }
+    });
+});
 
 const PORT = 3000;
 app.listen(PORT, () => {
