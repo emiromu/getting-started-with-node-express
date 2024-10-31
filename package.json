@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/emiromu/getting-started-with-node-express#readme",
   "dependencies": {
+    "ejs": "^3.1.10",
     "express": "^4.21.1",
     "express-async-handler": "^1.2.0",
     "node": "^22.11.0"
