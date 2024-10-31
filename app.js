@@ -8,6 +8,12 @@ import bookRouter from './routes/bookRouter.js';
 const app = express();
 const __dirname = path.resolve();
 
+const links = [
+    { href: "/", text: "Home" },
+    { href: "about", text: "About" },
+  ];
+const users = ["Antonio", "Fernando", "Paolo"];
+
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
@@ -22,7 +28,7 @@ app.get("/(index)?", (req, res) => {
         else
         {
             //res.send(data);
-            res.render("index", { message: "Welcome to the EJS Index Page" });
+            res.render("index", { message: "Welcome to the EJS Index Page", links: links, users: users });
         }
     });
 });
