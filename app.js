@@ -7,12 +7,16 @@ import bookRouter from './routes/bookRouter.js';
 
 const app = express();
 const __dirname = path.resolve();
+const assetsPath = path.join(__dirname, "public");
+
 
 const links = [
     { href: "/", text: "Home" },
     { href: "about", text: "About" },
   ];
 const users = ["Antonio", "Fernando", "Paolo"];
+
+app.use(express.static(assetsPath));
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
